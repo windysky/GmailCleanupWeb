@@ -1,0 +1,7 @@
+credentials.json
+.tokens/
+.cache/
+.env
+senders_to_delete.txt
+__pycache__/
+*.pyc
