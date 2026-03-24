@@ -1,0 +1,5 @@
+pip install -r requirements.txt
+copy .env.example .env
+REM edit .env and paste your generated FLASK_SECRET_KEY
+set OAUTHLIB_INSECURE_TRANSPORT=1
+python app.py

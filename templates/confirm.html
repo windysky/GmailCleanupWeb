@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Confirm deletion</h4>
+<p>The following senders are selected. The local list will be updated automatically. Proceed to move their <strong>unread Inbox</strong> messages to Trash?</p>
+
+<ul class="list-group mb-3">
+  {% if selected_detail|length == 0 %}
+    <li class="list-group-item">No senders selected.</li>
+  {% else %}
+    {% for s in selected_detail %}
+      <li class="list-group-item d-flex justify-content-between">
+        <span>{{ s.label }}</span>
+        <span class="badge text-bg-secondary">{{ s.count }} unread</span>
+      </li>
+    {% endfor %}
+  {% endif %}
+</ul>
+
+<form method="post" action="{{ url_for('delete') }}">
+  <div class="d-flex gap-2">
+    <button type="submit" class="btn btn-danger" {% if selected_detail|length == 0 %}disabled{% endif %}>Move to Trash</button>
+    <a class="btn btn-secondary" href="{{ url_for('unread') }}">Back</a>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h3 class="card-title">Gmail Unread Inbox Cleanup</h3>
+    <p>Sign in with Google to review senders with ≥ 2 unread Inbox emails, auto-select known senders from your local list, and move selected senders’ messages to Trash.</p>
+    <a class="btn btn-primary" href="{{ url_for('login') }}">Sign in with Google</a>
+  </div>
+</div>
+{% endblock %}

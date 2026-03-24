@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Done</h4>
+<p>Messages moved to Trash: <strong>{{ trashed }}</strong></p>
+{% if failed > 0 %}
+  <p>Failed: <strong>{{ failed }}</strong></p>
+  <details>
+    <summary>Show failed IDs</summary>
+    <pre>{{ failed_ids|tojson }}</pre>
+  </details>
+{% endif %}
+<div class="mt-3">
+  <a class="btn btn-primary" href="{{ url_for('unread') }}">Refresh</a>
+  <a class="btn btn-secondary" href="{{ url_for('index') }}">Home</a>
+</div>
+{% endblock %}
